@@ -61,7 +61,7 @@ const getWeather = async (id) => {
     try 
         {
         const config = {headers: {Accept: 'application/json'}}
-        const res = await axios.get(`http://api.weatherapi.com/v1/current.json?key=6fbc8dc19ff14d33862222621240906&q=${id}`, config);
+        const res = await axios.get(`https://api.weatherapi.com/v1/current.json?key=6fbc8dc19ff14d33862222621240906&q=${id}`, config);
         
         let latitude = (res.data.location.lat)
         let longitude = (res.data.location.lon)
@@ -110,7 +110,7 @@ const getWeather = async (id) => {
 const weatherToday = async (latitude, longitude) => {
     try {
     const config2 = {headers: {Accept: 'application/json'}}
-    const res2 = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=be513ddf6e7ac5604545cdad8706134f`, config2);
+    const res2 = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=be513ddf6e7ac5604545cdad8706134f`, config2);
                                 
     console.log(res2)
 
