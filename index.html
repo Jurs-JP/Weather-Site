@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Weather App</title>
+</head>
+<body>
+
+<div id="worldMap"></div>
+    
+<div id="pageBox">
+    <section id="searchBox">
+        <button id="searchCity" onclick="searchCity()"></button> <input type="text" id="cityName" placeholder="Search City">  
+    </section>
+    <section id="contentBox">
+        <h1 id="city"> </h1>
+        <div id="contentBox_inner">
+            <div id="currentWeather">
+                <div id="dateBox">
+                    <h4>Current Weather</h4>
+                    <h4 id="dateNow"></h4>
+
+                </div>
+                <div id="currentTemp">
+                    <div id="weatherIcon"></div>
+                    <h2 id="temp"></h2>
+                    <div id="condition"> <h3 id="conditionText"></h3> <h4 id="feelsLike">Not Available Right Now</h4></div>
+                    
+
+                </div>
+                <div id="moreWeatherInfo">
+                    <div id="windBox"><h3>Wind</h3><br><h3 id="windValue"></h3></div>
+                    <div id="atmBox"><h3>Pressure</h3><br><h3 id="pressureValue"></h3></div>
+                    <div id="precipitaionBox"><h3>Precipitation</h3><br><h3 id="precipitationValue"></h3></div>
+                    <div id="humidityBox"><h3>Humidity</h3><br><h3 id="humidityValue"></h3></div>
+                    <div id="cloudinessBox"><h3>Cloud</h3><br><h3 id="cloudValue"></h3></div>
+                </div>
+                
+            </div>
+            <div id="todayHourlyWeather">
+
+                <div id="hourly_1">
+                    <div id="hourly_1_graph">
+                        <div id="hourly_1_temp_text"></div>
+                        <div id="hourly_1_temp_graph"></div>
+                    </div>
+                    <div id="hourly_1_time"></div>
+                </div>
+                
+                <div id="hourly_2"><div id="hourly_2_graph"><div id="hourly_2_temp_text"></div><div id="hourly_2_temp_graph"></div></div><div id="hourly_2_time"></div></div>
+                <div id="hourly_3"><div id="hourly_3_graph"><div id="hourly_3_temp_text"></div><div id="hourly_3_temp_graph"></div></div><div id="hourly_3_time"></div></div>
+                <div id="hourly_4"><div id="hourly_4_graph"><div id="hourly_4_temp_text"></div><div id="hourly_4_temp_graph"></div></div><div id="hourly_4_time"></div></div>
+                <div id="hourly_5"><div id="hourly_5_graph"><div id="hourly_5_temp_text"></div><div id="hourly_5_temp_graph"></div></div><div id="hourly_5_time"></div></div>
+                <div id="hourly_6"><div id="hourly_6_graph"><div id="hourly_6_temp_text"></div><div id="hourly_6_temp_graph"></div></div><div id="hourly_6_time"></div></div>
+                <div id="hourly_7"><div id="hourly_7_graph"><div id="hourly_7_temp_text"></div><div id="hourly_7_temp_graph"></div></div><div id="hourly_7_time"></div></div>
+                <div id="hourly_8"><div id="hourly_8_graph"><div id="hourly_8_temp_text"></div><div id="hourly_8_temp_graph"></div></div><div id="hourly_8_time"></div></div>
+            </div>
+            <div id="futureWeather"></div>
+        </div>
+    </section>
+    
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script defer src="main.js"></script>
+</body>
+</html>
