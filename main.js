@@ -37,16 +37,13 @@ let searchCity = (e) => {
     const inputValue = cityInput.value;
 
     getWeather(inputValue)
-    pageBody.style.backgroundImage = `linear-gradient(10deg, rgb(4, 99, 202), rgb(4, 135, 226))`
 
     if(searchNum == 0) {
         const searchBox = document.querySelector("#searchBox");
-        document.querySelector("#worldMap").style.opacity = "0"
         searchBox.style.transform = "translateY(0%)"
         setTimeout(() => {
             const contentBox = document.querySelector("#contentBox");
             contentBox.style.visibility = "visible"
-            document.querySelector("#worldMap").remove()
         }, 1000)
     }
 
@@ -59,7 +56,7 @@ const getWeather = async (id) => {
         {
         const config = {headers: {Accept: 'application/json'}}
         const res = await axios.get(`https://api.weatherapi.com/v1/current.json?key=6fbc8dc19ff14d33862222621240906&q=${id}`, config);
-        
+
         let latitude = (res.data.location.lat)
         let longitude = (res.data.location.lon)
         
@@ -92,6 +89,33 @@ const getWeather = async (id) => {
         precipitation.innerHTML = `${precipitationResult} mm`
         humidity.innerHTML = `${humidityResult}%`
         cloud.innerHTML = cloudResult
+
+
+        let timeNow = (dateResult.slice(11, 13).match(/(\d+)/)[0])
+        console.log(timeNow)
+
+        if (timeNow > 19 || timeNow < 4) {
+            pageBody.style.background = `linear-gradient(2deg, rgba(37,56,93,0.85) 20%, rgba(37,56,93,0.90) 50%, rgba(37,56,93,1) 85%)`
+            
+        } 
+        else if (timeNow >= 4 && timeNow < 6) {
+            pageBody.style.background = `linear-gradient(2deg, rgba(219, 216, 216, 0.65) 0%, rgba(142,47,167,0.45) 40%, rgba(57, 100, 185, 0.85) 75%)`
+
+        }
+        else if (timeNow >= 6 && timeNow < 11) {
+            pageBody.style.background = `linear-gradient(2deg, rgba(176,168,59,1) 0%, rgba(253,29,29,0.6) 40%,  rgba(57, 100, 185, 0.85) 75%)`
+
+        }
+        else if (timeNow >= 11 && timeNow < 13) {
+            pageBody.style.background = `linear-gradient(2deg, rgba(179,172,83,1) 0%, rgba(253,29,29,0.72) 50%, rgba(69,109,189,0.85) 90%)`
+
+        }
+        else if (timeNow >= 13 && timeNow < 17) {
+            pageBody.style.background = `linear-gradient(2deg, rgba(179,172,83,0.8) 5%, rgba(253,29,29,0.7) 60%, rgba(69,109,189,0.6) 99%)`
+        } 
+        else {
+            pageBody.style.background = `linear-gradient(2deg, rgba(253,117,29,0.75) 20%, rgba(179,172,83,0.8) 50%, rgba(69,109,189,0.6) 85%)`
+        }
     }
     catch(e)
         {
@@ -122,7 +146,7 @@ const weatherToday = async (latitude, longitude) => {
             
             hourlyTempText[i].innerHTML = `${((res2.data.list[i].main.temp)-273.15).toFixed(1)}°`
             hourlyTempGraph[i].style.height = `${(((res2.data.list[i].main.temp)-273.15).toFixed(1))*2}%`
-            hourlyTempGraph[i].style.backgroundColor = `rgb(${((res2.data.list[i].main.temp)-273.15).toFixed(1)*5},0,${255 - (((res2.data.list[i].main.temp)-273.15).toFixed(1)*5)})`
+            hourlyTempGraph[i].style.backgroundColor = `rgba(${((res2.data.list[i].main.temp)-273.15).toFixed(1)*5},0,${255 - (((res2.data.list[i].main.temp)-273.15).toFixed(1)*5)}, 0.6)`
         }
        
         const futureWeather = document.querySelector("#futureWeather")
@@ -160,6 +184,7 @@ const weatherToday = async (latitude, longitude) => {
             futureWeatherIcon(res2.data.list[(i+1)*8].weather[0].icon, i)
        }
 
+       
        
     }  
     catch {

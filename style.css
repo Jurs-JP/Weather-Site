@@ -7,7 +7,7 @@ body {
   width: 100vw;
   overflow-y: hidden;
   margin: 0px;
-  background-image: linear-gradient(30deg, rgb(4, 99, 202), rgb(20, 145, 235));
+  background: linear-gradient(2deg, rgb(40, 89, 182) 20%, rgba(35, 90, 196, 0.85) 50%, rgba(34, 97, 219, 0.7) 85%);
   transition: all 1s ease-in-out;
   font-size: var(--fs-400);
 }
@@ -30,14 +30,6 @@ input:-webkit-autofill:active {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0px;
-}
-
-#worldMap {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  transition: all 0.6s ease-in-out;
-  background-image: url("Assets/pixil-world-map.svg");
 }
 
 #pageBox {
