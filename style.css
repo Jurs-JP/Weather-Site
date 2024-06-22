@@ -7,7 +7,8 @@ body {
   width: 100vw;
   overflow-y: hidden;
   margin: 0px;
-  background-image: linear-gradient(30deg, #0463CA, #0487E2);
+  background-image: linear-gradient(30deg, rgb(4, 99, 202), rgb(20, 145, 235));
+  transition: all 1s ease-in-out;
   font-size: var(--fs-400);
 }
 
@@ -118,7 +119,8 @@ h1, h2, h3, h4, h5, h6 {
 #pageBox #contentBox #contentBox_inner #currentWeather {
   position: relative;
   background-color: #0463CA;
-  border-radius: 10px 0px 0px 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
   padding: 10px;
   grid-area: current;
 }
@@ -204,7 +206,8 @@ h1, h2, h3, h4, h5, h6 {
 #pageBox #contentBox #contentBox_inner #todayHourlyWeather {
   grid-area: hourly;
   background-color: #0463CA;
-  border-radius: 0px 0px 0px 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
   display: flex;
 }
 #pageBox #contentBox #contentBox_inner #todayHourlyWeather > * {
@@ -238,6 +241,64 @@ h1, h2, h3, h4, h5, h6 {
 }
 #pageBox #contentBox #contentBox_inner #futureWeather {
   grid-area: future;
-  background-color: #0463CA;
   border-radius: 0px 10px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1124px) {
+  #pageBox #contentBox #contentBox_inner #futureWeather {
+    flex-direction: row;
+  }
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * {
+  width: 80%;
+  height: 20%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-align: center;
+  font-size: var(--fs-xs);
+}
+@media (max-width: 1124px) {
+  #pageBox #contentBox #contentBox_inner #futureWeather > * {
+    width: 23%;
+    height: 75%;
+  }
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * > * {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  justify-items: end;
+  align-items: end;
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * > * > *:first-child {
+  width: 60%;
+  height: 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * > * > *:last-child {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 80%;
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * > * > *:last-child > *:first-child {
+  font-weight: 600;
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > * > * > *:last-child > * {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-xs);
+}
+#pageBox #contentBox #contentBox_inner #futureWeather > *:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
 }/*# sourceMappingURL=style.css.map */
